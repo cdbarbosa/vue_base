@@ -1,0 +1,17 @@
+%defBorder{
+  border: 1px solid rgba(0,0,0,.09);
+}
+
+%defBoxShadow{
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+
+%mediumBox{
+  @extend %defBorder;
+  @extend %defBoxShadow;
+}
+
+%small{
+  font-size: em-calc(11px);
+  line-height: 1;
+}

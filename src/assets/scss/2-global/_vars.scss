@@ -1,0 +1,30 @@
+// 50 shades of gray
+
+$blackOne: #111;
+$grayOne: #333;
+$grayTwo: #666;
+$grayFour: rgba(0,0,0,0.09);
+
+$defTextColor: white;
+$defTextColorOpaque: $grayTwo;
+$darkTextColor: $blackOne;
+$links: #2196f3;
+$linksVisited: #9c27b0;
+$defBackgroundColor: #F5F5F5;
+
+// color schema @ https://coolors.co/f15a24-162944-999999-ffffff-ffffff
+
+$highlight: #F15A24;
+$primary: #162944;
+$primaryT1: #314055;
+$primaryT2: #465366;
+$secondary: #999;
+
+$advocacy: #465366;
+
+
+
+$mediumBP: $toast-breakpoint-medium;
+$smallBP: $toast-breakpoint-small;
+
+$defBR: 0.125rem;
