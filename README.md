@@ -1,4 +1,4 @@
-# Localdata Ezsites front-end with prerender-spa
+# Front-end with prerender-spa
 
 > A Localdata project
 
