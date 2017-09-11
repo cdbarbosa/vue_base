@@ -23,6 +23,9 @@ module.exports = merge(baseWebpackConfig, {
       extract: true
     })
   },
+  output: {
+    publicPath: config.build.assetsPublicPath
+  },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
