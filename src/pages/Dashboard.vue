@@ -1,14 +1,14 @@
 <template lang="html">
-  <div class="page" id="home">
+  <div class="page" id="dashboard">
     <div class="wrapper">
-      <h1>Hello from Home</h1>
+      <h1>Hello from Dashboard</h1>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'home',
+  name: 'dashboard',
   mounted () {},
   components: {
   }
