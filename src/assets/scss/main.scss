@@ -1,5 +1,4 @@
 // 1 - Tools
-@import '1-tools/toast';
 @import '1-tools/normalize';
 @import '1-tools/juice';
 
@@ -16,10 +15,10 @@
 @import '2-global/vue-transitions';
 @import '2-global/loaders';
 @import '2-global/fonts';
+@import '2-global/globals';
 
 // 3 - Modules
-// @import '3-modules/index/header';
+
 
 
 // 4 - pages
-@import '4-pages/index';

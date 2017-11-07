@@ -10,8 +10,3 @@
   @extend %defBorder;
   @extend %defBoxShadow;
 }
-
-%small{
-  font-size: em-calc(11px);
-  line-height: 1;
-}
