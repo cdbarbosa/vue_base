@@ -17,3 +17,5 @@ yarn dev || npm run dev
 ``` bash
 yarn build || npm run build
 ```
+### Generate Icons
+www.favicon-generator.org

@@ -1,0 +1,10 @@
+{
+	"name": "VueJS ES6 Template",
+	"short_name": "VueJS ES6",
+	"lang": "pt_BR",
+	"start_url": "/",
+	"background_color": "#42B682",
+	"theme": "#384A5E",
+	"display_mode": "standalone",
+	"icons": []
+}

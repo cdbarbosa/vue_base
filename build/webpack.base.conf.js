@@ -2,6 +2,8 @@ import path from 'path'
 import { assetsPath } from '../utils'
 import config from '../config'
 import vueLoaderConfig from '../config/vue-loader'
+import WebpackPwaManifest from 'webpack-pwa-manifest'
+
 
 let resolve = dir => path.join(__dirname, '..', dir)
 
@@ -58,5 +60,23 @@ export default {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new WebpackPwaManifest({
+      name: 'My Progressive Web App',
+      short_name: 'MyPWA',
+      description: 'My awesome Progressive Web App!',
+      background_color: '#ffffff',
+      icons: [
+        {
+          src: path.resolve('src/assets/img/bear.jpg'),
+          sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+        },
+        {
+          src: path.resolve('src/assets/img/bear.jpg'),
+          size: '1024x1024' // you can also use the specifications pattern
+        }
+      ]
+    })
+  ]
 }

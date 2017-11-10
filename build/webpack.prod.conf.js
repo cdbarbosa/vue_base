@@ -5,6 +5,7 @@ import webpack from 'webpack'
 import merge from 'webpack-merge'
 import baseWebpackConfig from './webpack.base.conf'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
+import ServiceWorkerWebpackPlugin from 'serviceworker-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin'
@@ -43,6 +44,9 @@ module.exports = merge(baseWebpackConfig, {
       },
       sourceMap: true
     }),
+    // new ServiceWorkerWebpackPlugin({
+    //   entry: path.join(, 'src/sw.js'),
+    // }),
     // extract css into its own file
     new ExtractTextPlugin({
       filename: assetsPath('css/[name].[contenthash].css')
