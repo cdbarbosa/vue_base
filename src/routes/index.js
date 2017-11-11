@@ -7,6 +7,7 @@ import Dashboard from '@/pages/Dashboard'
 
 export default new Router({
   mode: 'history',
+  base: process.env.NODE_ENV === 'production' ? '/pwa' : '/',
   routes: [
     {
       path: '/',

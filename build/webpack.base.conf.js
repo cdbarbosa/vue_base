@@ -4,8 +4,6 @@ import path from 'path'
 import { assetsPath } from '../utils'
 import config from '../config'
 import vueLoaderConfig from '../config/vue-loader'
-import WebpackPwaManifest from 'webpack-pwa-manifest'
-
 
 let resolve = dir => path.join(__dirname, '..', dir)
 

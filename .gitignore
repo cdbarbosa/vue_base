@@ -13,5 +13,8 @@ yarn-error.log*
 *.sln
 *.swp
 *.sop
+*.swp
+*.swo
 
 env.js
+rsync.sh
