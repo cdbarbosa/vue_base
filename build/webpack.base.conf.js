@@ -1,3 +1,5 @@
+'use strict'
+
 import path from 'path'
 import { assetsPath } from '../utils'
 import config from '../config'
@@ -10,6 +12,7 @@ let resolve = dir => path.join(__dirname, '..', dir)
 export default {
   entry: {
     app: './src/main.js'
+    // manifest: './static/manifest.json'
   },
   output: {
     path: config.build.assetsRoot,
@@ -41,7 +44,10 @@ export default {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [resolve('src'), resolve('test')],
+        options: {
+          // name: assetsPath('js/[name].[hash:7].[ext]')
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -62,21 +68,5 @@ export default {
     ]
   },
   plugins: [
-    new WebpackPwaManifest({
-      name: 'My Progressive Web App',
-      short_name: 'MyPWA',
-      description: 'My awesome Progressive Web App!',
-      background_color: '#ffffff',
-      icons: [
-        {
-          src: path.resolve('src/assets/img/bear.jpg'),
-          sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
-        },
-        {
-          src: path.resolve('src/assets/img/bear.jpg'),
-          size: '1024x1024' // you can also use the specifications pattern
-        }
-      ]
-    })
   ]
 }

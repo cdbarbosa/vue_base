@@ -1,6 +1,8 @@
 import path from 'path'
+import fs from 'fs'
 import config from '../config'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import UglifyJS from 'uglify-es'
 
 const assetsPath = _path => {
   let assetsSubDirectory = process.env.NODE_ENV === 'production' ? config.build.assetsSubDirectory : config.dev.assetsSubDirectory
@@ -68,8 +70,15 @@ const styleLoaders = options => {
   return output
 }
 
+const loadMinified = filePath => {
+  const code = fs.readFileSync(filePath, 'utf-8')
+  const result = UglifyJS.minify(code)
+  if (result.error) return ''
+  return result.code
+}
 export {
   assetsPath,
   cssLoaders,
-  styleLoaders
+  styleLoaders,
+  loadMinified
 }

@@ -1,3 +1,7 @@
+'use strict'
+
+import fs from 'fs'
+import path from 'path'
 import { styleLoaders } from '../utils'
 import webpack from 'webpack'
 import config from '../config'
@@ -9,6 +13,7 @@ import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = ['webpack-hot-middleware/client', baseWebpackConfig.entry[name]]
 })
+// console.log(fs.readFileSync(path.join(__dirname, './sw.dev.js'), 'utf-8'))
 
 module.exports = merge(baseWebpackConfig, {
   module: {
@@ -30,7 +35,10 @@ module.exports = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      inject: true
+      inject: true,
+      serviceWorkerLoader: `<script>${fs.readFileSync(path.join(__dirname,
+        './sw.dev.js'), 'utf-8')}</script>`
+
     }),
     new FriendlyErrorsPlugin()
   ]

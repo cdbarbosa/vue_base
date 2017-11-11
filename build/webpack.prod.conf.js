@@ -1,15 +1,16 @@
 import config from '../config'
-import path from 'path'
-import { assetsPath, styleLoaders } from '../utils'
+import { assetsPath, styleLoaders, loadMinified } from '../utils'
 import webpack from 'webpack'
+import fs from 'fs'
+import path from 'path'
 import merge from 'webpack-merge'
 import baseWebpackConfig from './webpack.base.conf'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
-import ServiceWorkerWebpackPlugin from 'serviceworker-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin'
 import PrerenderSpaPlugin from 'prerender-spa-plugin'
+import SWPrecacheWebpackPlugin from 'sw-precache-webpack-plugin'
 
 const env = config.build.env
 
@@ -24,12 +25,10 @@ module.exports = merge(baseWebpackConfig, {
       extract: true
     })
   },
-  output: {
-    publicPath: config.build.assetsPublicPath
-  },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
+    publicPath: config.build.assetsPublicPath,
     filename: assetsPath('js/[name].[chunkhash].js'),
     chunkFilename: assetsPath('js/[id].[chunkhash].js')
   },
@@ -44,9 +43,6 @@ module.exports = merge(baseWebpackConfig, {
       },
       sourceMap: true
     }),
-    // new ServiceWorkerWebpackPlugin({
-    //   entry: path.join(, 'src/sw.js'),
-    // }),
     // extract css into its own file
     new ExtractTextPlugin({
       filename: assetsPath('css/[name].[contenthash].css')
@@ -72,8 +68,10 @@ module.exports = merge(baseWebpackConfig, {
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
+      minifyCSS: true,
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
+      chunksSortMode: 'dependency',
+      serviceWorkerLoader: `<script>${loadMinified(path.join(__dirname, './sw.prod.js'))}</script>`
     }),
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
@@ -89,12 +87,6 @@ module.exports = merge(baseWebpackConfig, {
         )
       }
     }),
-    // extract webpack runtime and module manifest to its own file in order to
-    // prevent vendor hash from being updated whenever app bundle is updated
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-      chunks: ['vendor']
-    }),
     // copy custom static assets
     new CopyWebpackPlugin([
       {
@@ -103,6 +95,14 @@ module.exports = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ]),
+    // service worker caching
+    new SWPrecacheWebpackPlugin({
+      cacheId: 'my-vue-app',
+      filename: 'service-worker.js',
+      staticFileGlobs: ['dist/**/*.{js,html,css}'],
+      minify: true,
+      stripPrefix: 'dist/'
+    }),
     new PrerenderSpaPlugin(
       path.join(__dirname, '../dist'),
       [ '/' ]
@@ -110,24 +110,26 @@ module.exports = merge(baseWebpackConfig, {
   ]
 })
 
-// if (config.build.productionGzip) {
-//   var CompressionWebpackPlugin = require('compression-webpack-plugin')
-//   webpackConfig.plugins.push(
-//     new CompressionWebpackPlugin({
-//       asset: '[path].gz[query]',
-//       algorithm: 'gzip',
-//       test: new RegExp(
-//         '\\.(' +
-//         config.build.productionGzipExtensions.join('|') +
-//         ')$'
-//       ),
-//       threshold: 10240,
-//       minRatio: 0.8
-//     })
-//   )
-// }
 
-// if (config.build.bundleAnalyzerReport) {
-//   var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-//   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
-// }
+if (config.build.productionGzip) {
+  const CompressionWebpackPlugin = require('compression-webpack-plugin')
+
+  webpackConfig.plugins.push(
+    new CompressionWebpackPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: new RegExp(
+        '\\.(' +
+        config.build.productionGzipExtensions.join('|') +
+        ')$'
+      ),
+      threshold: 10240,
+      minRatio: 0.8
+    })
+  )
+}
+
+if (config.build.bundleAnalyzerReport) {
+  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+  webpackConfig.plugins.push(new BundleAnalyzerPlugin())
+}
