@@ -1,4 +1,5 @@
 const state = {
+  text: 'banana',
   products: [
     {name: 'Banana Skin', price: 20},
     {name: 'Shiny Star', price: 40},
@@ -8,6 +9,9 @@ const state = {
 }
 
 const getters = {
+  text (state) {
+    return state.text
+  },
   saleProducts: (state) => {
     let saleProducts = state.products.map(product => {
       return {
@@ -20,6 +24,9 @@ const getters = {
 }
 
 const mutations = {
+  CHANGE_TEXT (state, text) {
+    state.text = text
+  },
   REDUCE_PRICE (state, payload) {
     state.products.forEach(product => {
       product.price -= payload
@@ -28,6 +35,9 @@ const mutations = {
 }
 
 const actions = {
+  changeText: ({ commit }, text) => {
+    commit('CHANGE_TEXT', text)
+  },
   reducePrice: ({ commit }, payload) => {
     commit('REDUCE_PRICE', payload)
   }
