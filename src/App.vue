@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <router-link :to="{ name: 'dashboard' }">Dashboard</router-link>
-    <router-link :to="{ name: 'home' }">Home</router-link>
+    <vueHeader></vueHeader>
     <transition name="fade" mode="out-in">
       <router-view></router-view>
     </transition>
   </div>
 </template>
-
 <script>
+import vueHeader from './components/common/VueHeader.vue'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    vueHeader
+  }
 }
 </script>
 

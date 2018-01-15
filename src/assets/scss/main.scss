@@ -1,6 +1,7 @@
 // 1 - Tools
 @import '1-tools/normalize';
 @import '1-tools/juice';
+@import '1-tools/toast';
 
 // 2 - Globals
 
@@ -18,7 +19,9 @@
 @import '2-global/globals';
 
 // 3 - Modules
-
-
+@import '3-modules/header';
+@import '3-modules/room';
 
 // 4 - pages
+@import '4-pages/home';
+@import '4-pages/dashboard';

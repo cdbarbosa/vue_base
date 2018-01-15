@@ -1,46 +1,71 @@
 <template lang="html">
-  <div class="page" id="home">
-    <div class="wrapper">
-      <h1>Hello from Home</h1>
-      <input type="text" name="some_name" value="" v-model="text">
-      <div v-for="product, index in saleProducts">
-        {{ product.price }}
+    <div class="" id="home">
+      <div class="wrapper">
+        <div class="headerContent">
+          <div class="boxChoose">
+            <h3>Leirbag</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
+              </p>
+            <div class="inputs">
+              <label for="onde">Onde</label>
+              <input type="text" v-model="destino" name="" value="" placeholder="Destino">
+              <div class="columns">
+                <div class="column">
+                  <label for="check-in">Check-in</label>
+                  <input type="text" name="" v-model="dataChegada" v-mask="'##/##/####'" autocomplete="on" placeholder="01/12/2012" class="input">
+                </div>
+                <div class="column">
+                  <label for="check-out">Check-out</label>
+                  <input type="text" name="" v-model="dataSaida"  v-mask="'##/##/####'"autocomplete="on" placeholder="01/12/2012" class="input">
+                </div>
+              </div>
+            </div>
+            <router-link :to="{ name: 'dashboard' }">
+              <button type="submit" name="button" v-on:click="changeDestiny('salvador')">Entrar</button>
+            </router-link>
+          </div>
+        </div>
       </div>
-      <button @click="reducePrice(5)">Reduce</button>
     </div>
-  </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import _ from 'lodash'
+import vueContent from '../components/Content.vue'
+// import {mapActions} from 'vuex'
 export default {
   name: 'home',
+  components: {
+    vueContent
+  },
   data () {
     return {
+      destino: null,
+      dataChegada: null,
+      dataSaida: null
     }
   },
   computed: {
-    text: {
-      get () {
-        return this.$store.getters.text
-      },
-      set: _.debounce(function (newVal) {
-        this.changeText(newVal)
-      }, 300)
-    },
-    ...mapGetters([
-      'saleProducts'
-    ])
+    reservation () {
+      console.log(this.$store.state.resevation.destino)
+      return this.$store.state.resevation
+    }
   },
-  mounted () {},
+
   methods: {
-    ...mapActions([
-      'changeText',
-      'reducePrice'
-    ])
-  },
-  components: {
+    changeDestiny () {
+      // this.$store.state.resevation.destino = this.destino
+      // console.log(this.$store.state.resevation.destino)
+    }
   }
 }
 </script>
+
+<style media="screen">
+  #home {
+    background-image: url("../assets/img/room.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>

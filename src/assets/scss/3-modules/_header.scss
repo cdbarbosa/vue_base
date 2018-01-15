@@ -1,0 +1,48 @@
+.top {
+  margin: 0 auto;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+
+  .logo {
+    img {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      float: left;
+      width: 100px;
+    }
+  }
+}
+
+.headerContent {
+  height: cacl(100vh - 10vh);
+  padding-top: 7rem;
+
+  h1 {
+    padding-top: 0;
+    margin: 0;
+  }
+}
+
+.links {
+  background-color: #f2f2f2;
+  border-radius: 0.4rem;
+  display: inline-block;
+  float: right;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 90%;
+  margin-top: 0.5rem;
+
+  li {
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    margin-left: 1.5em;
+    text-decoration: none;
+    display: inline;
+    float: right;
+    font-size: 1.5em;
+    color: black;
+    cursor: pointer;
+    text-shadow: 2px 2px 8px black;
+  }
+}

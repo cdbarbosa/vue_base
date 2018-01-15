@@ -1,0 +1,49 @@
+.content {
+  padding-top: 8rem;
+  .row {
+    margin-left: 2rem;
+    .col {
+      margin-right: 0;
+    }
+  }
+  div.hotels {
+    border-radius: 0.4rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    width: 30%;
+    margin: 0 0 2rem 2rem;
+    h3 {
+      margin-top: 0;
+      text-align: center;
+    }
+    p {
+      text-align: center;
+    }
+  }
+  .rejector {
+    ul {
+      margin-bottom: 0;
+      display: inline-block;
+
+      li {
+        text-decoration: none;
+        display: inline-block;
+        font-size: 2rem;
+        border-radius: 0.4rem;
+        background-color: #f2f2f2;
+      }
+    }
+  }
+  .material-icons {
+    float: right;
+    i {
+      font-size: 3rem;
+      margin-top: 3rem;
+      cursor: pointer;
+    }
+  }
+  hr {
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+  }
+}
