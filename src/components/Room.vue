@@ -1,8 +1,11 @@
 <template lang="html">
   <div id="reservation">
     <div class="wrapper">
-      <div class="detailsRoom" :style="{background: `url(/static/img/5.jpg) no-repeat`, backgroundSize: 'cover', backgroundPosition: 'top'
-    }">
+      <div class="detailsRoom" :style="{
+        background: `url(/static/img/${parseInt($route.params.id)+1}.jpg) no-repeat`, 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'top'
+      }">
         <div class="content">
           <h1>Quarto </h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

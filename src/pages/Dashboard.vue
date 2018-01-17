@@ -4,8 +4,8 @@
       <div class="content">
         <div class="rejector">
           <ul>
-            <li>Entrada</li>
-            <li>Saida</li>
+            <li>{{ booking.in }}</li>
+            <li>{{ booking.out }}</li>
           </ul>
           <!-- <div class="material&#45;icons"> -->
           <!--   <i class="material&#45;icons">filter_list</i> -->
@@ -43,7 +43,8 @@ export default {
       return this.$store.state.resevation
     },
     ...mapGetters([
-      'hotelData'
+      'hotelData',
+      'booking'
     ])
   }
 }

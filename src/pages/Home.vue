@@ -9,15 +9,15 @@
               </p>
             <div class="inputs">
               <label for="onde">Onde</label>
-              <input type="text" v-model="destino" name="" value="" placeholder="Destino">
+              <input type="text" v-model="city" name="" value="" placeholder="Destino">
               <div class="columns">
                 <div class="column">
                   <label for="check-in">Check-in</label>
-                  <input type="text" name="" v-model="dataChegada" v-mask="'##/##/####'" autocomplete="on" placeholder="01/12/2012" class="input">
+                  <input type="text" name="" v-model="bookingIn" v-mask="'##/##/####'" autocomplete="on" placeholder="01/12/2012" class="input">
                 </div>
                 <div class="column">
                   <label for="check-out">Check-out</label>
-                  <input type="text" name="" v-model="dataSaida"  v-mask="'##/##/####'"autocomplete="on" placeholder="01/12/2012" class="input">
+                  <input type="text" name="" v-model="bookingOut"  v-mask="'##/##/####'"autocomplete="on" placeholder="01/12/2012" class="input">
                 </div>
               </div>
             </div>
@@ -36,12 +36,33 @@ export default {
   name: 'home',
   data () {
     return {
-      destino: null,
-      dataChegada: null,
-      dataSaida: null
     }
   },
   computed: {
+    city: {
+      get () {
+        return this.$store.getters.booking.city
+      },
+      set (newVal) {
+        this.setBookingData(['city', newVal])
+      }
+    },
+    bookingIn: {
+      get () {
+        return this.$store.getters.booking.in
+      },
+      set (newVal) {
+        this.setBookingData(['in', newVal])
+      }
+    },
+    bookingOut: {
+      get () {
+        return this.$store.getters.booking.out
+      },
+      set (newVal) {
+        this.setBookingData(['out', newVal])
+      }
+    },
     reservation () {
       console.log(this.$store.state.resevation.destino)
       return this.$store.state.resevation
@@ -52,7 +73,8 @@ export default {
   },
   methods: {
     ...mapActions([
-      'setHotelData'
+      'setHotelData',
+      'setBookingData'
     ]),
     getData () {
       this.$http.get('https://uinames.com/api', {
