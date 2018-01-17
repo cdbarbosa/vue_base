@@ -2,7 +2,6 @@ const state = {
   hotelData: [],
   booking: {
     city: '',
-    hotel: '',
     in: '',
     out: ''
   }

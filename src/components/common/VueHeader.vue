@@ -8,7 +8,7 @@
       </div>
       <div class="links">
         <div class="cidade" v-if="$route.name != 'home'">
-          <h2>{{ booking.city }} / {{ hotelData[$route.params.id].surname ? `Hotel ${hotelData[$route.params.id].surname}` : '' }}</h2>
+          <h2>{{ booking.city }}{{ $route.params.id !== undefinedc ? ` / Hotel ${hotelData[$route.params.id].surname}` : '' }}</h2>
         </div>
         <ul v-if="$route.name !== 'pagamento'">
           <li>Cadastro</li>
@@ -34,19 +34,17 @@ export default {
   computed: {
     user () {
       return this.$store.getters.hotelData[0]
-    }
+    },
+    ...mapGetters([
+      'hotelData',
+      'booking'
+    ])
   },
   methods: {
     checkRoutes () {
       if (this.$route.path.substring(1, 10) === '') return false
       else return true
     }
-  },
-  computed: {
-    ...mapGetters([
-      'hotelData',
-      'booking'
-    ])
   }
 }
 </script>
