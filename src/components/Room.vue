@@ -37,15 +37,3 @@ export default {
   name: 'reservation'
 }
 </script>
-
-<style lang="scss">
-  .detailsRoom {
-    position: relative;
-    height: 460px;
-  }
-  .content {
-    position: absolute;
-    margin-top: 90rem;
-  }
-</style>
-

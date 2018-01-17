@@ -18,7 +18,7 @@
               <img :src="`/static/img/h${index+1}.jpg`" alt=""/>
             </header>
             <router-link :to="{name : 'hotel', params: {id: index}}">
-              <h3>Hotel {{ h.surname }}</h3>
+              <h3 v-model="hotel">Hotel {{ h.surname }}</h3>
             </router-link>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-// import {mapActions} from 'vuex
+// import { mapActions } from 'vuex'
 import { mapGetters } from 'vuex'
 export default {
   name: 'dashboard',
@@ -46,6 +46,18 @@ export default {
       'hotelData',
       'booking'
     ])
+
+    // hotel: {
+    //   get () {
+    //     return this.$store.getters.booking.hotel
+    //   },
+    //   set (newVal) {
+    //     this.setBookingData(['hotel', newVal])
+    //   }
+    // }
+  },
+  methods: {
+
   }
 }
 </script>
