@@ -7,8 +7,8 @@ Vue.use(Router)
 
 import Home from '@/pages/Home'
 import Dashboard from '@/pages/Dashboard'
-import Reserva from '@/pages/Reserva'
-import Quarto from '@/components/Room'
+import Hotel from '@/pages/Reserva'
+import Room from '@/components/Room'
 import ReservaQuarto from '@/components/ReservaQuarto'
 import Pagamento from '@/components/PaymentForm'
 import Final from '@/pages/Final.vue'
@@ -28,14 +28,16 @@ export default new Router({
       component: Dashboard
     },
     {
-      path: 'reserva',
-      name: 'reserva',
-      component: Reserva
+      path: '/hotel/:id',
+      name: 'hotel',
+      component: Hotel,
+      children: [
+      ]
     },
     {
-      path: 'quarto',
-      name: 'quarto',
-      component: Quarto
+      path: '/room/:id',
+      name: 'room',
+      component: Room
     },
     {
       path: 'cadastro',

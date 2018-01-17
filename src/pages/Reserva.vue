@@ -1,12 +1,12 @@
 <template lang="html">
   <div id="reserva" class="">
     <div class="banner" :style="{
-      background: `url(/static/img/h${$route.query.id + 1}.jpg) no-repeat`,
+      background: `url(/static/img/h${parseInt($route.params.id) + 1}.jpg) no-repeat`,
       backgroundSize: 'cover', backgroundPosition: 'top'
     }">
         <div class="content">
           <div class="wrapper">
-          <h2>Hotel {{ hotelData[$route.query.id].surname }}</h2>
+          <h2>Hotel {{ hotelData[$route.params.id].surname }}</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -24,7 +24,7 @@
             <img :src="`/static/img/${index+1}.jpg`" alt=""/>
           </header>
           <div class="body">
-            <router-link :to="{ name: 'quarto'}">
+            <router-link :to="{ name: 'room', params: { id: index }}">
               <h4 style="">Quarto {{ index+1 }}</h4>
             </router-link>
             <p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

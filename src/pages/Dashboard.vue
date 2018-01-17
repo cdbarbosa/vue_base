@@ -17,7 +17,7 @@
             <header>
               <img :src="`/static/img/h${index+1}.jpg`" alt=""/>
             </header>
-            <router-link :to="{name : 'reserva', query: {id: index}}">
+            <router-link :to="{name : 'hotel', params: {id: index}}">
               <h3>Hotel {{ h.surname }}</h3>
             </router-link>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
