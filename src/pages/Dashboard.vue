@@ -4,8 +4,8 @@
       <div class="content">
         <div class="rejector">
           <ul>
-            <li>{{ booking.in }}</li>
-            <li>{{ booking.out }}</li>
+            <li>{{ booking.in || 'Não informado' }}</li>
+            <li>{{ booking.out || 'Não Informado' }}</li>
           </ul>
           <!-- <div class="material&#45;icons"> -->
           <!--   <i class="material&#45;icons">filter_list</i> -->

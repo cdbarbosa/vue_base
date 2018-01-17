@@ -69,7 +69,8 @@ export default {
     }
   },
   beforeMount () {
-    this.getData()
+    if (!window.localStorage.getItem('hotelData')) this.getData()
+    else this.setHotelData(JSON.parse(window.localStorage.getItem('hotelData')))
   },
   methods: {
     ...mapActions([
@@ -83,6 +84,7 @@ export default {
           ext: ''
         }
       }).then(response => {
+        window.localStorage.setItem('hotelData', JSON.stringify(response.data))
         this.setHotelData(response.data)
       })
     },
