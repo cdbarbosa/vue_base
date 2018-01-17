@@ -2,13 +2,14 @@
   min-height: 100vh;
 
 }
-.coluna_details {
-  display: inline-block;
-
-  .detailsRoom {
-    height: 460px;
-    position: relative;
-  }
+.detailsRoom {
+  height: 460px;
+  position: relative;
+  padding-top: 4rem;
+}
+.contentRoom {
+  position: absolute;
+  margin-top: 30rem;
 }
 
 .coluna_price {
@@ -20,7 +21,7 @@
   border: 1px solid;
   border-radius: .4rem;
   float: right;
-  margin-top: 12rem;
+  margin-top: 2rem;
   margin-right: 5rem;
 
   h4 {
@@ -39,8 +40,6 @@
   button {
     float: right;
     width: 30%;
-    // margin-right: 11rem;
-    // margin-top: 2rem;
     padding-right: 2rem;
     background-color: blue;
     cursor: pointer;
