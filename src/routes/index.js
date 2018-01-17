@@ -11,6 +11,7 @@ import Reserva from '@/components/Reserva'
 import Quarto from '@/components/Room'
 import ReservaQuarto from '@/components/ReservaQuarto'
 import Pagamento from '@/components/PaymentForm'
+// import Pay from '@/components/Pay'
 
 export default new Router({
   mode: 'history',
