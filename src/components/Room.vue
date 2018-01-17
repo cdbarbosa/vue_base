@@ -39,7 +39,10 @@ export default {
   }
 }
 </script>
+<<<<<<< HEAD
+=======
 
 <style lang="scss">
 </style>
 
+>>>>>>> 523fab69b1eb76fe075db3e0b7e8533171a6c264
