@@ -17,17 +17,19 @@
         </section>
       </div>
       <div class="page">
-        <div class="col col--1-of-2">
+        <div class="col col--2-of-3">
           <component :is="target"></component>
         </div>
-        <div class="col col--1-of-2">
+        <div class="col col--1-of-3">
           <div class="detailsBox">
             <h4>Room</h4>
             <h5>check-in: ##/##/####</h5>
             <h5>check-out: ##/##/####</h5>
             <h5 v-if="target == 'pay'">Hospedes: x pessoas</h5>
             <h5>Total: R$ 000,00</h5>
-            <button v-if="target == 'pay'" type="button" class="finalizar">Finalizar</button>
+            <router-link :to="{name: 'final'}">
+              <button v-if="target == 'pay'" type="button" class="finalizar">Finalizar</button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -116,7 +118,8 @@ export default {
   .detailsBox {
     float: right;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: 45%;
+    width: 95%;
+    margin-top:2rem;
     h4 {
       text-align:center;
     }
@@ -141,7 +144,6 @@ export default {
     }
   }
   .finalizar {
-    margin-left: 4rem;
     margin-bottom: 2rem;
     background-color: blue;
   }

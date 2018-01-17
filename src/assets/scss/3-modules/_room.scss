@@ -40,8 +40,10 @@
 .buttons_reserve {
   button {
     float: right;
-    margin-right: 11rem;
-    margin-top: 2rem;
+    width: 30%;
+    // margin-right: 11rem;
+    // margin-top: 2rem;
+    padding-right: 2rem;
     background-color: blue;
     cursor: pointer;
   }

@@ -11,7 +11,7 @@ import Reserva from '@/components/Reserva'
 import Quarto from '@/components/Room'
 import ReservaQuarto from '@/components/ReservaQuarto'
 import Pagamento from '@/components/PaymentForm'
-// import Pay from '@/components/Pay'
+import Final from '@/pages/Final.vue'
 
 export default new Router({
   mode: 'history',
@@ -46,6 +46,11 @@ export default new Router({
       path: 'pagamento',
       name: 'pagamento',
       component: Pagamento
+    },
+    {
+      path: 'final',
+      name: 'final',
+      component: Final
     }
   ]
 })
