@@ -17,5 +17,8 @@ export default {
 </script>
 
 <style lang="scss">
+  $primary: #164876;
+  $secundary: #071E30;
+  $highlight: #BC4D58;
   @import "./assets/scss/main.scss";
 </style>

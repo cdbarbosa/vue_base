@@ -7,15 +7,15 @@
             <li>Entrada</li>
             <li>Saida</li>
           </ul>
-          <div class="material-icons">
-            <i class="material-icons">filter_list</i>
-          </div>
+          <!-- <div class="material&#45;icons"> -->
+          <!--   <i class="material&#45;icons">filter_list</i> -->
+          <!-- </div> -->
           <hr>
         </div>
-        <div class="row">
-          <div class="col col--1-of-3 hotels" v-for="item in items">
+        <div class="hotels">
+          <div class="hotel" v-for="h, index in hotelData">
             <router-link :to="{name : 'reserva'}">
-              <h3 style="color: black; margin-bottom: 0;">Hotel {{ item }}</h3>
+              <h3 style="color: black; margin-bottom: 0;">Hotel {{ h.surname }}</h3>
             </router-link>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
@@ -27,7 +27,7 @@
 
 <script>
 // import {mapActions} from 'vuex
-import {mapGetters} from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'dashboard',
   data () {
@@ -40,8 +40,26 @@ export default {
       return this.$store.state.resevation
     },
     ...mapGetters([
-      'getDestiny'
+      'hotelData'
     ])
+  },
+  beforeMount () {
+    this.getData()
+  },
+  methods: {
+    ...mapActions([
+      'setHotelData'
+    ]),
+    getData () {
+      this.$http.get('https://uinames.com/api', {
+        params: {
+          amount: 12,
+          ext: ''
+        }
+      }).then(response => {
+        this.setHotelData(response.data)
+      })
+    }
   }
 }
 </script>

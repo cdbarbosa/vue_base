@@ -1,25 +1,24 @@
 const state = {
-  resevation: [
-    {dataChegada: null},
-    {dataSaida: null},
-    {destino: ''}
-  ]
+  hotelData: []
 }
 
 const getters = {
-  getDestiny: state => {
-    console.log(state.resevation.destino)
-    return state.resevation.destino
-  }
+  hotelData: () => state.hotelData
 }
 
 const mutations = {
+  SET_HOTEL_DATA (state, data) {
+    state.hotelData = data
+  },
   CHANGE_DESTINY (state, destino) {
     state.resevation.destino = destino
   }
 }
 
 const actions = {
+  setHotelData ({ commit }, data) {
+    commit('SET_HOTEL_DATA', data)
+  },
   changeDestiny ({commit}, destino) {
     commit('CHANGE_DESTINY', destino)
   }
