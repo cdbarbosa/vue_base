@@ -1,5 +1,5 @@
 <template>
-  <div id="payment">
+  <div class="page" id="payment">
     <div class="wrapper">
       <div class="content">
         <section>

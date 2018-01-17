@@ -1,7 +1,7 @@
 <template lang="html">
     <div class="page" id="home">
       <div class="wrapper">
-        <div class="headerContent">
+        <div class="homeContent">
           <div class="boxChoose">
             <h3>Leirbag</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
