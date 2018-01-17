@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="" id="home">
+    <div class="page" id="home">
       <div class="wrapper">
         <div class="headerContent">
           <div class="boxChoose">

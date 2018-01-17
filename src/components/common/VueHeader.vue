@@ -1,20 +1,20 @@
 <template lang="html">
-  <div class="top">
+  <header class="top">
     <div class="wrapper">
       <div class="logo">
         <router-link :to="{name: 'home'}">
           <img src="../../assets/img/logo.png" alt="">
         </router-link>
       </div>
-      <div class="links" v-if="checkRoutes()">
+      <div class="links">
         <!-- <p v-for="reserva in getDestiny">{{reseva.destino}}</p> -->
-        <ul v-if="$route.name !== 'cadastro'">
-          <li style="margin-right: 3rem">cadastro</li>
-          <li>login</li>
+        <ul>
+          <li>Cadastro</li>
+          <li>Login</li>
         </ul>
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
