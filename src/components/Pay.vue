@@ -55,9 +55,7 @@ export default {
 
   }
   .master {
-    ul {
-      display: inline-flex;
-    }
+    display: inline-flex;
     li {
     display: inline-block;
       img {
