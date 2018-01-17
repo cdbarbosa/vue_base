@@ -31,7 +31,7 @@
 </template>
 
 <script>
-// import {mapActions} from 'vuex'
+import { mapActions } from 'vuex'
 export default {
   name: 'home',
   data () {
@@ -47,8 +47,23 @@ export default {
       return this.$store.state.resevation
     }
   },
-
+  beforeMount () {
+    this.getData()
+  },
   methods: {
+    ...mapActions([
+      'setHotelData'
+    ]),
+    getData () {
+      this.$http.get('https://uinames.com/api', {
+        params: {
+          amount: 12,
+          ext: ''
+        }
+      }).then(response => {
+        this.setHotelData(response.data)
+      })
+    },
     changeDestiny () {
       // this.$store.state.resevation.destino = this.destino
       // console.log(this.$store.state.resevation.destino)
