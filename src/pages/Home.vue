@@ -31,13 +31,9 @@
 </template>
 
 <script>
-import vueContent from '../components/Content.vue'
 // import {mapActions} from 'vuex'
 export default {
   name: 'home',
-  components: {
-    vueContent
-  },
   data () {
     return {
       destino: null,

@@ -10,6 +10,7 @@ import Dashboard from '@/pages/Dashboard'
 import Reserva from '@/components/Reserva'
 import Quarto from '@/components/Room'
 import ReservaQuarto from '@/components/ReservaQuarto'
+import Pagamento from '@/components/PaymentForm'
 
 export default new Router({
   mode: 'history',
@@ -26,19 +27,24 @@ export default new Router({
       component: Dashboard
     },
     {
-      path: '/reserva',
+      path: 'reserva',
       name: 'reserva',
       component: Reserva
     },
     {
-      path: '/quarto',
+      path: 'quarto',
       name: 'quarto',
       component: Quarto
     },
     {
-      path: '/reservaquarto',
-      name: 'reservaquarto',
+      path: 'cadastro',
+      name: 'cadastro',
       component: ReservaQuarto
+    },
+    {
+      path: 'pagamento',
+      name: 'pagamento',
+      component: Pagamento
     }
   ]
 })

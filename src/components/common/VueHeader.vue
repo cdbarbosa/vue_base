@@ -8,7 +8,7 @@
       </div>
       <div class="links" v-if="checkRoutes()">
         <!-- <p v-for="reserva in getDestiny">{{reseva.destino}}</p> -->
-        <ul>
+        <ul v-if="$route.name !== 'cadastro'">
           <li style="margin-right: 3rem">cadastro</li>
           <li>login</li>
         </ul>
@@ -22,8 +22,8 @@ export default {
   name: 'vueHeader',
   methods: {
     checkRoutes () {
-      if (this.$route.path.substring(1, 10) === 'dashboard' || this.$route.path.substring(1, 8) === 'reserva' || this.$route.path.substring(1, 7) === 'quarto') return true
-      else return false
+      if (this.$route.path.substring(1, 10) === '') return false
+      else return true
     }
   }
 }

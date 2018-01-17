@@ -20,7 +20,7 @@
           </div>
       </div>
       <div class="buttons_reserve">
-        <router-link :to=" {name: 'reservaquarto'}">
+        <router-link :to=" {name: 'cadastro'}">
           <button type="button" name="button">RESERVA</button>
         </router-link>
       </div>
