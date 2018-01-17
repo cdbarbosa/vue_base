@@ -5,7 +5,7 @@
         <label for="E-MAIL">E-MAIL</label>
         <input type="text" name="" v-model="email" autocomplete="on" placeholder="example@gmail.com" class="input">
         <label for="SENHA">SENHA</label>
-        <input type="text" name="" v-model="senha" autocomplete="on" placeholder="123456789" class="input">
+        <input type="text" name="" v-model="senha" v-mask="'*********'" autocomplete="on" placeholder="123456789" class="input">
         <router-link :to="{name: 'pagamento'}" tag="button" class="__small">
           LOGIN
           </router-link>

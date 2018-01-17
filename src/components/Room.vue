@@ -15,7 +15,7 @@
           <div class="list">
             <h4>Check-in: <span class="__opaque">{{ booking.in }}</span></h4>
             <h4>Check-out: <span class="__opaque">{{ booking.out }}</span></h4>
-            <h4>Preço: <span class="__opaque">R$ 100,00 {{  }}</span></h4>
+            <h4>Preço: <span class="__opaque">R$ {{ price() }},00</span></h4>
           </div>
           <div class="buttons_reserve">
             <router-link class="__small" tag="button" :to=" {name: 'cadastro'}">
@@ -36,13 +36,11 @@ export default {
     ...mapGetters([
       'booking'
     ])
+  },
+  methods: {
+    price () {
+      return Math.floor((Math.random() * 2000) + 160)
+    }
   }
 }
 </script>
-<<<<<<< HEAD
-=======
-
-<style lang="scss">
-</style>
-
->>>>>>> 523fab69b1eb76fe075db3e0b7e8533171a6c264
