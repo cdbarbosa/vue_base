@@ -7,10 +7,17 @@
         </router-link>
       </div>
       <div class="links">
-        <!-- <p v-for="reserva in getDestiny">{{reseva.destino}}</p> -->
-        <ul>
+        <ul v-if="$route.name !== 'pagamento'">
           <li>Cadastro</li>
           <li>Login</li>
+        </ul>
+        <ul v-else class="user">
+          <li class="userName">{{ user.name }} {{ user.surname }}</li>
+          <li class="userPhoto" :style="{
+            background: `url(/static/img/user.jpg)`,
+            backgroundSize: 'cover'
+          }">
+          </li>
         </ul>
       </div>
     </div>
@@ -18,8 +25,14 @@
 </template>
 
 <script>
+// import { mapGetters } from 'vuex'
 export default {
   name: 'vueHeader',
+  computed: {
+    user () {
+      return this.$store.getters.hotelData[0]
+    }
+  },
   methods: {
     checkRoutes () {
       if (this.$route.path.substring(1, 10) === '') return false
