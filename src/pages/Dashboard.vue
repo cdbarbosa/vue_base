@@ -14,8 +14,11 @@
         </div>
         <div class="hotels">
           <div class="hotel" v-for="h, index in hotelData">
-            <router-link :to="{name : 'reserva'}">
-              <h3 style="color: black; margin-bottom: 0;">Hotel {{ h.surname }}</h3>
+            <header>
+              <img :src="`/static/img/h${index+1}.jpg`" alt=""/>
+            </header>
+            <router-link :to="{name : 'reserva', query: {id: index}}">
+              <h3>Hotel {{ h.surname }}</h3>
             </router-link>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
@@ -27,7 +30,7 @@
 
 <script>
 // import {mapActions} from 'vuex
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   name: 'dashboard',
   data () {
@@ -42,24 +45,6 @@ export default {
     ...mapGetters([
       'hotelData'
     ])
-  },
-  beforeMount () {
-    this.getData()
-  },
-  methods: {
-    ...mapActions([
-      'setHotelData'
-    ]),
-    getData () {
-      this.$http.get('https://uinames.com/api', {
-        params: {
-          amount: 12,
-          ext: ''
-        }
-      }).then(response => {
-        this.setHotelData(response.data)
-      })
-    }
   }
 }
 </script>

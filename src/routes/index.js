@@ -7,7 +7,7 @@ Vue.use(Router)
 
 import Home from '@/pages/Home'
 import Dashboard from '@/pages/Dashboard'
-import Reserva from '@/components/Reserva'
+import Reserva from '@/pages/Reserva'
 import Quarto from '@/components/Room'
 import ReservaQuarto from '@/components/ReservaQuarto'
 import Pagamento from '@/components/PaymentForm'

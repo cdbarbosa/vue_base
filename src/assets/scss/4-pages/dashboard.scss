@@ -18,12 +18,17 @@
     width: calc(33.333333% - 2.5rem);
     padding: 1rem;
     margin-bottom: 1rem;
-    h3 {
-      margin-top: 0;
-      text-align: center;
+    header{
+      img{
+        width: 100%;
+      }
     }
-    p {
-      text-align: center;
+    a{
+      color: $primary;
+      text-decoration: none;
+      h3 {
+        margin-top: 0;
+      }
     }
   }
   .rejector {
@@ -52,5 +57,59 @@
   hr {
     // margin-bottom: 2rem;
     // margin-left: 2rem;
+  }
+}
+
+#reserva{
+  padding-top: 105px;
+  .banner{
+    height: 450px;
+    margin-bottom: 1rem;
+    position: relative;
+    .content{
+      width: 100%;
+      bottom: 0;
+      position: absolute;
+      background: #f2f2f2;
+      padding-top: 0;
+      padding: 1rem 0;
+      .wrapper{
+        h2{
+          margin-top: 0;
+        }
+        p{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  .room{
+    header{
+      img{
+        width: 100%;
+      }
+    }
+    a{
+      color: $primary;
+      text-decoration: none;
+      h4{
+        margin-top: 0;
+      }
+    }
+  }
+  .cols{
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .col{
+      padding-left: 0;
+      @include card(1);
+      background-color: white;
+      // width: 33.3333333%;
+      width: calc(33.333333% - 0.5rem);
+      margin-bottom: 1rem;
+      .body{
+        padding: 1rem;
+      }
+    }
   }
 }
